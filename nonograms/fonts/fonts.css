@@ -1,0 +1,22 @@
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('OpenSans-SemiBold.eot');
+	src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+		url('OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('OpenSans-SemiBold.woff') format('woff'),
+		url('OpenSans-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('OpenSans-ExtraBold.eot');
+	src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+		url('OpenSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+		url('OpenSans-ExtraBold.woff') format('woff'),
+		url('OpenSans-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}

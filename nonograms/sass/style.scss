@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "Open Sans";
+    font-size: 10px;
+}
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    gap: 70px;
+}
+.listWrapper {
+    position: relative;
+}
+.templatesListBtn {
+    width: 250px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    span {
+        font-size: 2.5rem;
+    }
+    img {
+        width: 25px;
+        height: 25px;
+    }
+}
+.templatesList {
+    position: absolute;
+    width: 100%;
+    top: 110%;
+    left: 0;
+    border-radius: 10px;
+    border: 2px solid gray;
+    padding: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 250ms all;
+    background-color: #fff;
+    .option {
+        width: 100%;
+        font-size: 2rem;
+        padding: 5px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+.game {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.game_content {
+    display: grid;
+    width: clamp(200px, 95vw, 500px);
+    height: clamp(200px, 95vw, 500px);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+.top_tips {
+    grid-area: 1 / 4 / 4 / 9;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 3px solid grey;
+    border-bottom: none;
+    .top_tip {
+        border: 1px solid grey;
+    }
+}
+.left_tips {
+    grid-area: 4 / 1 / 9 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: 3px solid grey;
+    border-right: none;
+    .left_tip {
+        border: 1px solid grey;
+    }
+}
+.playing_field {
+    grid-area: 4 / 4 / 9 / 9;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: 3px solid black;
+    .cell {
+        border: 1px solid grey;
+        cursor: pointer;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .picked {
+        background-color: black;
+    }
+}
+.top_tip, .left_tip {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6eeb8;
+}
+.timer {
+    margin: 0 auto;
+    font-size: 3rem;
+    padding: 0 0 30px 0;
+}
+.modal_background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(10, 10, 10, 0.50);
+    z-index: 1;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 400ms all;
+    .modal {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        max-width: 700px;
+        padding: 50px 30px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+        }
+    }
+}
+.reset {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #5666c2;
+    border-radius: 10px;
+}
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 553px) {
+    header {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+    .timer {
+        padding: 0 0 15px 0;
+    }
+}
+@media (max-width: 380px) {
+    .top_tip, .left_tip {
+        font-size: 2rem;
+    }
+    .playing_field {
+        .cell {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .templatesList {
+        .option:hover {
+            background-color: #9ca7e0;
+        }
+    }
+}

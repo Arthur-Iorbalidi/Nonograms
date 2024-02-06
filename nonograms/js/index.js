@@ -142,22 +142,11 @@ function BuildGame() {
     modal.append(resetBtnModal);
 
     document.body.append(modalBackground);
-
-    const audioClick = document.createElement('audio');
-    audioClick.classList.add('clickSound');
-    audioClick.src = '../audio/click.mp3';
-
-    const audioWin = document.createElement('audio');
-    audioWin.classList.add('winSound');
-    audioWin.src = '../audio/win.mp3';
-
-    document.body.append(audioClick);
-    document.body.append(audioWin);
 }
 
 function ChangeCellColor(event) {
     event.target.classList.toggle('picked');
-    document.querySelector('.clickSound').play();
+    Sound('click');
 }
 
 function SetX(event) {
@@ -167,7 +156,7 @@ function SetX(event) {
     else {
         event.target.textContent = '';
     }
-    document.querySelector('.clickSound').play();
+    Sound('click');
 }
 
 function CheckResult() {
@@ -179,7 +168,7 @@ function CheckResult() {
     }
     if (document.querySelectorAll('.picked').length === currentTemplate.content.length) {
         document.querySelector('.modal_background').classList.add('visible');
-        document.querySelector('.winSound').play();
+        Sound('win');
         document.querySelector('.modal > h2').textContent = `Great! You have solved the nonogram in ${timerSeconds} seconds!`
         StopTimer();
     }
@@ -230,4 +219,9 @@ function StopTimer() {
         isTimerActive = false;
         timerSeconds = 0;
     }
+}
+
+function Sound(soundName) {
+    const audio = new Audio(`../audio/${soundName}.mp3`);
+    audio.play();
 }
